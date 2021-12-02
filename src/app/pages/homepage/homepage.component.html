@@ -1,0 +1,41 @@
+<div class="container mt-4">
+  <h5>Add a location</h5>
+
+  <div class="container custom-container">
+
+    <h3 class="mt-4 ml-5">Enter a zipcode:</h3>
+
+    <form 
+      [formGroup]="form"
+      (ngSubmit)="addLocation()">
+      <div class="row mb-4 mt-4">
+        <div class="col-2"></div>
+  
+        <div class="col-2">
+          <input
+            formControlName='zipcode'
+            class="form-control"
+            type="text"
+            placeholder="Enter a zipcode">
+        </div>
+  
+        <div class="col-2">
+          <button
+            [disabled]="form.invalid || isDisabled"
+            type="submit"
+            class="btn btn-primary">
+              Add location
+            </button>
+        </div>
+  
+      </div>
+    </form>
+
+  </div>
+
+  <locations
+    [locationsWeatherData]="locationsWeatherData"
+    (removeLocationEvent)="removeLocationEvent()">
+  </locations>
+
+</div>
