@@ -1,0 +1,16 @@
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.custom-container {
+  width: fit-content;
+}
+
+.custom-cursor {
+  cursor: pointer;
+}

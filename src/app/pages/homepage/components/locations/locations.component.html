@@ -1,0 +1,38 @@
+<div
+  *ngFor="let location of locationsWeatherData"
+  class="mt-4">
+
+  <h3>{{ location.name }} ({{ location.zipCode }})</h3>
+
+  <div class="custom-container flex">
+
+    <div class="ml-3 mt-3 mb-3">
+
+      <h4>Current conditions: {{ location.weather[0].main }}</h4>
+      <h4>Temepratures today:</h4>
+      <p>
+        Current: {{ location.main.temp }}
+        - Max: {{ location.main.temp_max }}
+        - Min: {{ location.main.temp_min }}
+      </p>
+      <p>
+        <a [routerLink]="['/forecast', location.zipCode]" href="javascript:void(0)">Show 5-day forecast for {{location.name}}</a>
+      </p>
+
+    </div>
+
+    <div class="mr-3 mt-3">
+      <span
+        (click)="removeLocation(location.zipCode)"
+        class="close custom-cursor">
+          ×
+      </span>
+
+      <img
+        *ngIf="location.icon; let icon"
+        src="https://www.angulartraining.com/images/weather/{{ icon }}.png">
+    </div>
+
+  </div>
+
+</div>
